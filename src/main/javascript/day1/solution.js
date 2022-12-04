@@ -1,12 +1,7 @@
-function wrap(gift) {
-  let topbottom = "*".repeat(gift.length + 2);
-  return topbottom + "\n*" + gift + "*\n" + topbottom;
-}
-  
 function wrapping(gifts) {
-  let wrapped = [];
-  for (let gift of gifts) {
-    wrapped.push(wrap(gift));   
+    const wrap = gift => {
+      const topbottom = "*".repeat(gift.length + 2);
+      return [topbottom, `*${gift}*`, topbottom].join('\n');
+    }
+    return gifts.map(wrap)
   }
-  return wrapped
-}
